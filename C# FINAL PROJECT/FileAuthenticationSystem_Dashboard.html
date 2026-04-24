@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFMAS — Documents</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono&display=swap');
+
+        :root {
+            --bg: #0d0f14;
+            --sidebar: #13161e;
+            --card: #1a1e28;
+            --border: #2a2f3e;
+            --text: #e8eaf0;
+            --text-dim: #8b91a8;
+            --accent: #4f8ef7;
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
+
+        /* --- SIDEBAR --- */
+        aside { width: 260px; background: var(--sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 1.5rem 0; }
+        .brand { padding: 0 1.5rem 2rem; font-size: 1.25rem; font-weight: 700; letter-spacing: -1px; }
+        .brand span { color: var(--accent); }
+        .nav-group { margin-bottom: 1.5rem; }
+        .nav-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-dim); padding: 0 1.5rem 0.5rem; letter-spacing: 1px; }
+        .nav-item { display: flex; align-items: center; padding: 0.75rem 1.5rem; color: var(--text-dim); text-decoration: none; font-size: 0.9rem; }
+        .nav-item.active { color: var(--accent); background: rgba(79, 142, 247, 0.1); border-left: 3px solid var(--accent); }
+
+        /* --- MAIN --- */
+        main { flex: 1; display: flex; flex-direction: column; }
+        header { height: 64px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; }
+        .content { padding: 2rem; overflow-y: auto; }
+
+        /* --- FILE UI --- */
+        .toolbar { display: flex; justify-content: space-between; margin-bottom: 2rem; align-items: center; }
+        .filter-tabs { display: flex; gap: 0.5rem; background: var(--sidebar); padding: 4px; border-radius: 10px; border: 1px solid var(--border); }
+        .tab { padding: 6px 16px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; color: var(--text-dim); border: none; background: transparent; }
+        .tab.active { background: var(--card); color: var(--text); box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+
+        .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+        .file-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; transition: 0.2s; cursor: pointer; position: relative; }
+        .file-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        
+        .file-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+        .file-name { font-size: 0.9rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+        .file-info { font-size: 0.75rem; color: var(--text-dim); }
+
+        .btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+        
+        .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius); padding: 2rem; text-align: center; margin-bottom: 2rem; color: var(--text-dim); transition: 0.2s; }
+        .upload-zone:hover { border-color: var(--accent); color: var(--text); }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="brand">IF<span>MAS</span></div>
+        <nav>
+            <div class="nav-group">
+                <p class="nav-label">Main</p>
+                <a href="#" class="nav-item">Dashboard</a>
+            </div>
+            <div class="nav-group">
+                <p class="nav-label">Records</p>
+                <a href="#" class="nav-item">Students</a>
+                <a href="#" class="nav-item">Faculty</a>
+                <a href="#" class="nav-item active">Documents</a>
+            </div>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <div style="font-weight: 600;">File Manager</div>
+            <button class="btn"><span>↑</span> Upload File</button>
+        </header>
+
+        <div class="content">
+            <div class="upload-zone">
+                <p>Drag and drop files here or click to browse</p>
+                <p style="font-size: 0.75rem; margin-top: 8px;">Supports PDF, DOCX, and Scanned Images (Max 25MB)</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="filter-tabs">
+                    <button class="tab active">All Files</button>
+                    <button class="tab">Academic</button>
+                    <button class="tab">Financial</button>
+                    <button class="tab">Administrative</button>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-dim);">84 total objects</div>
+            </div>
+
+            <div class="file-grid">
+                <div class="file-card">
+                    <span class="file-icon">📄</span>
+                    <div class="file-name">Student_Handbook_2026.pdf</div>
+                    <div class="file-info">2.4 MB • Oct 20, 2026</div>
+                </div>
+                <div class="file-card">
+                    <span class="file-icon">📊</span>
+                    <div class="file-name">Q3_Enrollment_Report.xlsx</div>
+                    <div class="file-info">1.1 MB • Oct 15, 2026</div>
+                </div>
+                <div class="file-card">
+                    <span class="file-icon">📜</span>
+                    <div class="file-name">Curriculum_BSCS_V2.pdf</div>
+                    <div class="file-info">850 KB • Oct 12, 2026</div>
+                </div>
+                <div class="file-card">
+                    <span class="file-icon">📁</span>
+                    <div class="file-name">Faculty_Credentials</div>
+                    <div class="file-info">12 Items • Sep 30, 2026</div>
+                </div>
+                <div class="file-card">
+                    <span class="file-icon">📝</span>
+                    <div class="file-name">Meeting_Minutes_Board.docx</div>
+                    <div class="file-info">45 KB • Sep 28, 2026</div>
+                </div>
+                <div class="file-card">
+                    <span class="file-icon">🖼️</span>
+                    <div class="file-name">Campus_Site_Map.png</div>
+                    <div class="file-info">4.2 MB • Sep 25, 2026</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
