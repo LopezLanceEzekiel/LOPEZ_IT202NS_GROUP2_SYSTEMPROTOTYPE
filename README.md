@@ -38,6 +38,7 @@ Dashboard: Sidebar navigation with quick access to Documents, Analytics, and Set
 Management Table: Data-dense views for handling student IDs, names, and enrollment statuses.
 
 Project Team (Group 2)
+
 Darrel John Bartolo
 
 Aizer Cedric M. Galang
